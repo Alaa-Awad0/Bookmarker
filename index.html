@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarker</title>
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="py-5">
+        <div class="container">
+            <h1>
+                Bookmarker
+            </h1>
+            <div class="col-6 col-xl-3 mx-auto mt-5 position-relative">
+              <span class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+
+                <input
+                oninput="searchData()"
+            type="search"
+            placeholder="Search"
+            class="form-control ps-5"
+            id="searchInput"
+          />
+          </div>
+            <div class="inputs-box  p-3 py-4 mt-5 d-flex flex-column justify-content-center align-items-center gap-4">
+                <h2>
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark your favorite sites
+                    <i class="fa-solid fa-bookmark"></i>
+                </h2>
+                <div class="w-100">
+                    <label for="bookmarkName" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>
+                        Site Name</label
+                      >
+                      <input
+                      oninput="validationName()"
+                  type="text"
+                  placeholder="Bookmark Name"
+                  class="form-control"
+                  id="bookmarkName"
+                />
+                </div>
+                <div class="w-100">
+                    <label for="bookmarkUrl" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-link pe-2"></i>Site URL</label
+                      >
+                      <input
+                      oninput="validationUrl()"
+                        type="url"
+                        placeholder="Website URL"
+                        class="form-control"
+                        id="bookmarkUrl"
+                      />
+                </div>
+                <div class="btns">
+                  <button onclick="addBookmark()" class="btn btn-submit px-5" id="submitBtn" >Submit</button>
+                <button onclick="updateData()" class="btn btn-update px-5 d-none" id="updateBtn">Update</button>
+                </div>
+        </div>
+        <table class="table mt-4 text-center bg-light">
+            <thead>
+              <th class="text-capitalize">index</th>
+              <th class="text-capitalize">Website Name</th>
+              <th class="text-capitalize">Visit</th>
+              <th class="text-capitalize">Update</th>
+              <th class="text-capitalize">Delete</th>
+            </thead>
+            <tbody id="tableContent">
+          
+            </tbody>
+          </table>
+
+          <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content p-4">
+                <div class="modal-header p-0 mb-4 border-0">
+                  <h5 class="circles pt-2">
+                    <span class="rounded-circle me-1"></span>
+                    <span class="rounded-circle me-1"></span>
+                    <span class="rounded-circle me-1"></span>
+                  </h5>
+                  <button type="button" class="btn-close pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                  <p class="m-0 pb-2">
+                    Site Name or Url is not valid, Please follow the rules below :
+                  </p>
+                  <ol class="rules list-unstyled m-0">
+                    <li class="p-2">
+                      <i class="fa-regular fa-circle-right pe-2"></i>Site name must
+                      contain at least 3 characters
+                    </li>
+                    <li class="p-2">
+                      <i class="fa-regular fa-circle-right pe-2"></i>Site URL must be a
+                      valid one
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal" id="myModal2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content p-4">
+                <div class="modal-header p-0 mb-4 border-0">
+                  <h5 class="circles pt-2">
+                    <span class="rounded-circle me-1"></span>
+                    <span class="rounded-circle me-1"></span>
+                    <span class="rounded-circle me-1"></span>
+                  </h5>
+                  <button type="button" class="btn-close pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                  <p id="bookmarkExist" class="m-0 pb-2">
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
